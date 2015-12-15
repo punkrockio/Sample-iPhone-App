@@ -18,6 +18,8 @@
 		2DB4D87D1C1E627700BEBA52 /* joe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4D8771C1E627700BEBA52 /* joe.jpg */; };
 		2DB4D87E1C1E627700BEBA52 /* john.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4D8781C1E627700BEBA52 /* john.jpg */; };
 		2DB4D87F1C1E627700BEBA52 /* sus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4D8791C1E627700BEBA52 /* sus.jpg */; };
+		2DDB0B631C20B8740017F5A9 /* BlogListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB0B621C20B8740017F5A9 /* BlogListVC.swift */; };
+		2DDB0B651C20B8BA0017F5A9 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB0B641C20B8BA0017F5A9 /* Blog.swift */; };
 		EA62FD561989F6AC00469896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62FD551989F6AC00469896 /* AppDelegate.swift */; };
 		EA62FD581989F6AC00469896 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA62FD571989F6AC00469896 /* Images.xcassets */; };
 		EA62FD641989F6AC00469896 /* SwiftLoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62FD631989F6AC00469896 /* SwiftLoginScreenTests.swift */; };
@@ -49,6 +51,8 @@
 		2DB4D8771C1E627700BEBA52 /* joe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joe.jpg; sourceTree = "<group>"; };
 		2DB4D8781C1E627700BEBA52 /* john.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = john.jpg; sourceTree = "<group>"; };
 		2DB4D8791C1E627700BEBA52 /* sus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sus.jpg; sourceTree = "<group>"; };
+		2DDB0B621C20B8740017F5A9 /* BlogListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogListVC.swift; sourceTree = "<group>"; };
+		2DDB0B641C20B8BA0017F5A9 /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blog.swift; path = Model/Blog.swift; sourceTree = "<group>"; };
 		EA62FD501989F6AC00469896 /* SwiftLoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA62FD541989F6AC00469896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA62FD551989F6AC00469896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			children = (
 				2DB4D8611C1E61F800BEBA52 /* TableCell.swift */,
 				2DB4D8621C1E61F800BEBA52 /* Friend.swift */,
+				2DDB0B641C20B8BA0017F5A9 /* Blog.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				EAA118A6198A23CB00F443F1 /* LoginVC.swift */,
 				EAA118A8198AAC7100F443F1 /* SignupVC.swift */,
 				2DB4D85B1C1E61D900BEBA52 /* ListViewController.swift */,
+				2DDB0B621C20B8740017F5A9 /* BlogListVC.swift */,
 				2DB4D85C1C1E61D900BEBA52 /* DetailViewController.swift */,
 				2DB4D85D1C1E61D900BEBA52 /* MoreViewController.swift */,
 				2DB4D8651C1E620100BEBA52 /* Model */,
@@ -274,8 +280,10 @@
 				EA62FD561989F6AC00469896 /* AppDelegate.swift in Sources */,
 				EAA118A5198A1BF000F443F1 /* HomeVC.swift in Sources */,
 				2DB4D85F1C1E61D900BEBA52 /* DetailViewController.swift in Sources */,
+				2DDB0B631C20B8740017F5A9 /* BlogListVC.swift in Sources */,
 				2DB4D8641C1E61F800BEBA52 /* Friend.swift in Sources */,
 				2DB4D85E1C1E61D900BEBA52 /* ListViewController.swift in Sources */,
+				2DDB0B651C20B8BA0017F5A9 /* Blog.swift in Sources */,
 				EAA118A7198A23CB00F443F1 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

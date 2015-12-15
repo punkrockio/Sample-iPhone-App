@@ -1,11 +1,3 @@
-//
-//  Recipe.swift
-//  Swift-TableView-Example
-//
-//  Created by Bilal Arslan on 28/07/15.
-//  Copyright (c) 2015 Bilal ARSLAN. All rights reserved.
-//
-
 import Foundation
 
 class Friend: NSObject {
@@ -19,3 +11,4 @@ class Friend: NSObject {
         self.prepTime = prepTime
     }
 }
+
