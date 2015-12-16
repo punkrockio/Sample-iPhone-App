@@ -36,7 +36,14 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     
                     println(post);
                     self.blogs.append(
-                        Blog(authour: self.friend!, title: post["title"] as! String, thumbnail: self.friend!.thumbnails, blurb: post["slug"] as! String, fulltext: post["content_raw"] as! String))
+                        Blog(authour: self.friend!,
+                             title: post["title"] as! String,
+                             subtitle: post["subtitle"] as! String,
+                             thumbnail: self.friend!.thumbnails,
+                             blurb: post["slug"] as! String,
+                             fulltext: post["content_raw"] as! String
+                        )
+                    );
                     
                 }
                 dispatch_async(dispatch_get_main_queue(), {
@@ -95,15 +102,12 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let indexPath = self.tableView!.indexPathForSelectedRow
             let destinationViewController: BlogDetailVC = segue.destinationViewController as! BlogDetailVC;
             
-            destinationViewController.prepString = blogs[indexPath()!.row].authour.prepTime;
-            destinationViewController.nameString = blogs[indexPath()!.row].authour.name;
-            destinationViewController.imageName = blogs[indexPath()!.row].authour.thumbnails;
             
-            println(destinationViewController.nameString);
+            destinationViewController.blogTitle    = blogs[indexPath()!.row].title;
+            destinationViewController.blogSubtitle = blogs[indexPath()!.row].subtitle;
+            destinationViewController.content      = blogs[indexPath()!.row].fulltext;
+            destinationViewController.imageName    = blogs[indexPath()!.row].authour.thumbnails;
             
-//            destinationViewController.prepString = blogs[indexPath()!.row].prepTime
-//            destinationViewController.nameString = blogs[indexPath()!.row].name
-//            destinationViewController.imageName = blogs[indexPath()!.row].thumbnails
         }
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class SignupVC: UIViewController {
     
     @IBOutlet var txtUsername : UITextField!
+    @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtPassword : UITextField!
     @IBOutlet var txtConfirmPassword : UITextField!
     
