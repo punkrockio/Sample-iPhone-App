@@ -12,27 +12,27 @@ import UIKit
 class BlogDetailVC: UIViewController {
     
     @IBOutlet var imageView: UIImageView?
-    @IBOutlet var nameLabel: UILabel?
-    @IBOutlet var prepTime: UILabel?
+    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var textView: UITextView?
     
-    var nameString: String?
-    var prepString: String?
-    var imageName: String?
-    
+    var imageName: String?;
+    var blogTitle: String?;
+    var blogSubtitle: String?;
+    var content: String?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        navigationItem.title = nameString!
-        
+        navigationItem.title = blogTitle!
+        titleLabel?.text = blogSubtitle!
+        textView!.text = content;
 //        imageView?.image = UIImage(named: imageName!)
         let url = NSURL(string: imageName!)!;
         let data = NSData(contentsOfURL: url);
         imageView?.image = UIImage(data: data!);
         
-        nameLabel?.text = nameString!
-        prepTime?.text = prepString!
+        
         
 
         self.imageView?.layer.cornerRadius = 4.0
