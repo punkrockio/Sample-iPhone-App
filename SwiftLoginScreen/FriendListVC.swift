@@ -10,6 +10,7 @@ import UIKit
 
 class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView?
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var friends = [Friend]()
 
@@ -19,7 +20,8 @@ class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         
         navigationItem.title = "Friends"
-        initializeTheFriends()
+        initializeTheFriends();
+        self.spinner.startAnimating();
     }
     
     func initializeTheFriends() {
@@ -43,6 +45,8 @@ class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 dispatch_async(dispatch_get_main_queue(), {
                     
                     self.tableView?.reloadData();
+                    self.spinner.stopAnimating();
+                    self.spinner.hidden = true;
                     
                 });
             }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qyG-Pz-KlK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qyG-Pz-KlK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -250,6 +250,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4DJ-Iw-H2Z">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="FFL-ei-pGD">
+                                    <rect key="frame" x="0.0" y="164" width="320" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="78" id="ww3-sQ-G0A" customClass="TableCell" customModule="SwiftLoginScreen" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="86" width="320" height="78"/>
@@ -326,6 +331,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="505-6i-cx5" id="UGr-NC-D0z"/>
+                        <outlet property="spinner" destination="FFL-ei-pGD" id="YK2-Mn-g38"/>
                         <outlet property="tableView" destination="4DJ-Iw-H2Z" id="u4R-EL-7ZE"/>
                     </connections>
                 </viewController>
@@ -472,10 +478,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0K-Ko-T0e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s0K-Ko-T0e">
                                 <rect key="frame" x="60" y="72" width="200" height="200"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-m7-LmP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-m7-LmP">
                                 <rect key="frame" x="16" y="301" width="288" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="2iB-vF-H4b"/>
@@ -489,6 +495,7 @@
                         <constraints>
                             <constraint firstItem="FcK-m7-LmP" firstAttribute="top" secondItem="s0K-Ko-T0e" secondAttribute="bottom" constant="29" id="7P5-xc-aHk"/>
                             <constraint firstItem="FcK-m7-LmP" firstAttribute="leading" secondItem="9yr-ak-FiL" secondAttribute="leadingMargin" id="MmT-e1-c0Z"/>
+                            <constraint firstItem="0LG-9w-YZO" firstAttribute="top" secondItem="FcK-m7-LmP" secondAttribute="bottom" constant="219" id="Mpe-wt-SeV"/>
                             <constraint firstItem="s0K-Ko-T0e" firstAttribute="leading" secondItem="9yr-ak-FiL" secondAttribute="leadingMargin" constant="44" id="RrA-iF-dmN"/>
                             <constraint firstItem="s0K-Ko-T0e" firstAttribute="top" secondItem="DIT-OI-jXH" secondAttribute="bottom" constant="8" symbolic="YES" id="b5Y-53-kiO"/>
                             <constraint firstItem="FcK-m7-LmP" firstAttribute="trailing" secondItem="9yr-ak-FiL" secondAttribute="trailingMargin" id="eDi-iF-Imi"/>
