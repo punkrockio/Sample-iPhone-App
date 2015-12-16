@@ -26,7 +26,11 @@ class BlogDetailVC: UIViewController {
         
         navigationItem.title = nameString!
         
-        imageView?.image = UIImage(named: imageName!)
+//        imageView?.image = UIImage(named: imageName!)
+        let url = NSURL(string: imageName!)!;
+        let data = NSData(contentsOfURL: url);
+        imageView?.image = UIImage(data: data!);
+        
         nameLabel?.text = nameString!
         prepTime?.text = prepString!
         
