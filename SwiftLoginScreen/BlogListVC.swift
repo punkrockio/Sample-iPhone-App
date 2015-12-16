@@ -3,6 +3,7 @@ import UIKit
 class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var blogs = [Blog]()
     var friend: Friend?;
@@ -12,7 +13,8 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         navigationItem.title = "Blogs"
-        initializeTheBlogs()
+        initializeTheBlogs();
+        self.spinner.startAnimating();
     }
     
     func initializeTheBlogs() {
@@ -49,7 +51,8 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 dispatch_async(dispatch_get_main_queue(), {
                     
                     self.tableView?.reloadData();
-                    
+                    self.spinner.stopAnimating();
+                    self.spinner.hidden = true;
                 });
             }
         

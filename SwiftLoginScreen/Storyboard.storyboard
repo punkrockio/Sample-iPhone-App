@@ -353,6 +353,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xry-73-mvp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="wXV-Pz-5PG">
+                                    <rect key="frame" x="0.0" y="164" width="320" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.050980396570000003" green="0.062745101750000004" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="78" id="lcR-0l-5M2" customClass="TableCell" customModule="SwiftLoginScreen" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -395,6 +400,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Blog" id="ed0-71-z0f"/>
                     <connections>
+                        <outlet property="spinner" destination="wXV-Pz-5PG" id="MIC-Cr-Ofo"/>
                         <outlet property="tableView" destination="Xry-73-mvp" id="avT-mx-SdH"/>
                     </connections>
                 </viewController>
@@ -469,14 +475,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0K-Ko-T0e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0K-Ko-T0e">
                                 <rect key="frame" x="16" y="116" width="288" height="126"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-m7-LmP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-m7-LmP">
                                 <rect key="frame" x="16" y="64" width="288" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="2iB-vF-H4b"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -489,15 +492,6 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FcK-m7-LmP" firstAttribute="top" secondItem="s0K-Ko-T0e" secondAttribute="bottom" constant="29" id="7P5-xc-aHk"/>
-                            <constraint firstItem="FcK-m7-LmP" firstAttribute="leading" secondItem="9yr-ak-FiL" secondAttribute="leadingMargin" id="MmT-e1-c0Z"/>
-                            <constraint firstItem="0LG-9w-YZO" firstAttribute="top" secondItem="FcK-m7-LmP" secondAttribute="bottom" constant="219" id="Mpe-wt-SeV"/>
-                            <constraint firstItem="s0K-Ko-T0e" firstAttribute="leading" secondItem="9yr-ak-FiL" secondAttribute="leadingMargin" constant="44" id="RrA-iF-dmN"/>
-                            <constraint firstItem="s0K-Ko-T0e" firstAttribute="top" secondItem="DIT-OI-jXH" secondAttribute="bottom" constant="8" symbolic="YES" id="b5Y-53-kiO"/>
-                            <constraint firstItem="FcK-m7-LmP" firstAttribute="trailing" secondItem="9yr-ak-FiL" secondAttribute="trailingMargin" id="eDi-iF-Imi"/>
-                            <constraint firstItem="s0K-Ko-T0e" firstAttribute="centerX" secondItem="FcK-m7-LmP" secondAttribute="centerX" id="gXJ-3X-UvN"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZnA-Jy-KwW"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
