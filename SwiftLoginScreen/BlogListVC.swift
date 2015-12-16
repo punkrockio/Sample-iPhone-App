@@ -7,6 +7,7 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var blogs = [Blog]()
     var friend: Friend?;
+    let api:String = "http://159.203.113.84/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func initializeTheBlogs() {
         
         
-        var url:NSURL! = NSURL(string: "http://159.203.113.84/api/friend/" + friend!.id)!;
+        var url:NSURL! = NSURL(string: "\(self.api)api/friend/" + friend!.id)!;
         
         var session = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
             (data, response, error) -> Void in
@@ -37,11 +38,15 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     var post: NSDictionary! = posts[i] as! NSDictionary;
                     
                     println(post);
+                    var thumbUrl = post["thumb_url"] as! String
+                    
                     self.blogs.append(
                         Blog(authour: self.friend!,
                              title: post["title"] as! String,
                              subtitle: post["subtitle"] as! String,
-                             thumbnail: self.friend!.thumbnails,
+//                             thumbnail: self.friend!.thumbnails,
+//                             thumbnail: "http://159.203.113.84/\(thumbUrl)" ,
+                            thumbnail: self.api + thumbUrl,
                              blurb: post["slug"] as! String,
                              fulltext: post["content_raw"] as! String
                         )
@@ -109,7 +114,8 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             destinationViewController.blogTitle    = blogs[indexPath()!.row].title;
             destinationViewController.blogSubtitle = blogs[indexPath()!.row].subtitle;
             destinationViewController.content      = blogs[indexPath()!.row].fulltext;
-            destinationViewController.imageName    = blogs[indexPath()!.row].authour.thumbnails;
+//            destinationViewController.imageName    = blogs[indexPath()!.row].authour.thumbnails;
+            destinationViewController.imageName    = blogs[indexPath()!.row].thumbnail;
             
         }
     }

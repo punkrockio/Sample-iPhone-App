@@ -20,6 +20,7 @@ class BlogDetailVC: UIViewController {
     var blogSubtitle: String?;
     var content: String?;
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +36,9 @@ class BlogDetailVC: UIViewController {
         
         
 
-        self.imageView?.layer.cornerRadius = 4.0
+        self.imageView?.layer.cornerRadius = self.imageView!.frame.size.width / 2;
+        //self.imageView?.layer.cornerRadius = 6.0
         self.imageView?.clipsToBounds = true
+        
     }
 }
