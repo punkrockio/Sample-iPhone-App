@@ -12,9 +12,8 @@ import UIKit
 class TableCell : UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel?
-    @IBOutlet var prepTimeLabel: UILabel?
     @IBOutlet var thumbnailImageView: UIImageView?
-    
+    @IBOutlet var articleLabel: UILabel?
     
     @IBOutlet var thumbnailImageViewBlog: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -22,7 +21,7 @@ class TableCell : UITableViewCell {
     
     func configurateTheFriendCell(friend: Friend) {
         self.nameLabel?.text = friend.name
-        self.prepTimeLabel?.text = friend.prepTime
+        self.articleLabel?.text = self.articleLabel!.text! + friend.articles;
         
         //let imageView:UIImage = UIImage(named: friend.thumbnails)!
         

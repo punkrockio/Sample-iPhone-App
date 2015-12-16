@@ -38,9 +38,14 @@ class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 
                 for (var i = 0; i < jsonResult.count; i++) {
                     var resultData: NSDictionary! = (jsonResult[i] as! NSDictionary);
-                    self.friends.append(Friend(id: resultData["id"] as! String, name: resultData["name"] as! String, thumbnails: resultData["thumb_url"] as! String, prepTime: "X years"));
-                    println(resultData["name"]);
-                    println(jsonResult.count);
+                    var posts: NSArray! = resultData["posts"] as! NSArray;
+                    
+                    self.friends.append(
+                        Friend(id: resultData["id"] as! String,
+                               name: resultData["name"] as! String,
+                               thumbnails: resultData["thumb_url"] as! String,
+                               articles: String(posts.count) )
+                    );
                 }
                 dispatch_async(dispatch_get_main_queue(), {
                     
@@ -50,8 +55,6 @@ class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                     
                 });
             }
-           
-            
         });
         
         session.resume();
