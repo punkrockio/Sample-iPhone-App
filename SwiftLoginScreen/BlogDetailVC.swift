@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailViewController: UIViewController {
+class BlogDetailVC: UIViewController {
     
     @IBOutlet var imageView: UIImageView?
     @IBOutlet var nameLabel: UILabel?

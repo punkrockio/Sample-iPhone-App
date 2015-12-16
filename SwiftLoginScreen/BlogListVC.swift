@@ -1,10 +1,11 @@
 import UIKit
 
 class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet var tableView: UITableView?
+    
+    @IBOutlet var tableView: UITableView!
     
     var blogs = [Blog]()
-    
+    var friend: Friend?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,15 +16,40 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func initializeTheBlogs() {
-        self.blogs = [
-//            Blog(name: "Becz Wallace", thumbnails: "becz.jpg", prepTime: "4 years"),
-//            Blog(name: "Joe Sanders", thumbnails: "joe.jpg", prepTime: "10 years"),
-//            Blog(name: "John Meikle", thumbnails: "john.jpg", prepTime: "10 years"),
-//            Blog(name: "Susie Mitchell", thumbnails: "sus.jpg", prepTime: "15 years"),
-//            Blog(name: "Hannah 'Bolo' Bryant", thumbnails: "bolo.jpg", prepTime: "2 years"),
-//            Blog(name: "Georgie Desalis", thumbnails: "george.jpg", prepTime: "2 years"),
-        ]
-        self.tableView?.reloadData()
+        
+        
+        var url:NSURL! = NSURL(string: "http://159.203.113.84/api/friend/" + friend!.id)!;
+        
+        var session = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
+            (data, response, error) -> Void in
+            
+            if let rawData = data {
+                
+                let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(rawData, options: NSJSONReadingOptions.MutableContainers, error: NSErrorPointer()) as! NSDictionary;
+                println(jsonResult["posts"]);
+                var posts: NSArray! = jsonResult["posts"] as! NSArray;
+                
+                println(posts.count);
+                
+                for (var i = 0; i < posts.count; i++) {
+                    var post: NSDictionary! = posts[i] as! NSDictionary;
+                    
+                    println(post);
+                    self.blogs.append(
+                        Blog(authour: self.friend!, title: post["title"] as! String, thumbnail: self.friend!.thumbnails, blurb: post["slug"] as! String, fulltext: post["content_raw"] as! String))
+                    
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.tableView?.reloadData();
+                    
+                });
+            }
+        
+        })
+        
+        session.resume();
+        
     }
     
     // MARK: - UITableView DataSource Methods
@@ -36,7 +62,7 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell = TableCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
         }
         
-        cell.configurateTheCell(blogs[indexPath.row])
+        cell.configurateTheBlogCell(blogs[indexPath.row])
         
         return cell!
     }
@@ -67,7 +93,13 @@ class BlogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "blogDetail" {
             let indexPath = self.tableView!.indexPathForSelectedRow
-            let destinationViewController: DetailViewController = segue.destinationViewController as! DetailViewController
+            let destinationViewController: BlogDetailVC = segue.destinationViewController as! BlogDetailVC;
+            
+            destinationViewController.prepString = blogs[indexPath()!.row].authour.prepTime;
+            destinationViewController.nameString = blogs[indexPath()!.row].authour.name;
+            destinationViewController.imageName = blogs[indexPath()!.row].authour.thumbnails;
+            
+            println(destinationViewController.nameString);
             
 //            destinationViewController.prepString = blogs[indexPath()!.row].prepTime
 //            destinationViewController.nameString = blogs[indexPath()!.row].name

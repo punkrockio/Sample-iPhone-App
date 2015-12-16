@@ -56,7 +56,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             NSLog("PostData: %@",post);
             
 //            var url:NSURL = NSURL(string:"https://dipinkrishna.com/jsonlogin2.php")!
-            var url:NSURL = NSURL(string:"http://localhost/_TUTES/03_YouTube/01_SwiftLoginWithPhp/02_SwiftJsonLoginPHP/jsonlogin2.php")!
+//            var url:NSURL = NSURL(string:"http://localhost/_TUTES/03_YouTube/01_SwiftLoginWithPhp/02_SwiftJsonLoginPHP/jsonlogin2.php")!
+            var url:NSURL = NSURL(string: "http://159.203.113.84/auth/login")!;
             
             
             var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!

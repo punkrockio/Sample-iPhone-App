@@ -21,6 +21,13 @@ class HomeVC: UIViewController {
         super.viewDidAppear(true)
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // ********** OVERRIDE **********
+        prefs.setValue(1, forKey: "ISLOGGEDIN");
+        prefs.setValue("Dominic", forKey: "USERNAME");
+        // ******************************
+        
+        
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_login", sender: self)

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DB4D85E1C1E61D900BEBA52 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D85B1C1E61D900BEBA52 /* ListViewController.swift */; };
-		2DB4D85F1C1E61D900BEBA52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D85C1C1E61D900BEBA52 /* DetailViewController.swift */; };
+		2DB4D85E1C1E61D900BEBA52 /* FriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D85B1C1E61D900BEBA52 /* FriendListVC.swift */; };
+		2DB4D85F1C1E61D900BEBA52 /* BlogDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D85C1C1E61D900BEBA52 /* BlogDetailVC.swift */; };
 		2DB4D8601C1E61D900BEBA52 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D85D1C1E61D900BEBA52 /* MoreViewController.swift */; };
 		2DB4D8631C1E61F800BEBA52 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D8611C1E61F800BEBA52 /* TableCell.swift */; };
 		2DB4D8641C1E61F800BEBA52 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4D8621C1E61F800BEBA52 /* Friend.swift */; };
@@ -40,8 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DB4D85B1C1E61D900BEBA52 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		2DB4D85C1C1E61D900BEBA52 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2DB4D85B1C1E61D900BEBA52 /* FriendListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListVC.swift; sourceTree = "<group>"; };
+		2DB4D85C1C1E61D900BEBA52 /* BlogDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogDetailVC.swift; sourceTree = "<group>"; };
 		2DB4D85D1C1E61D900BEBA52 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2DB4D8611C1E61F800BEBA52 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		2DB4D8621C1E61F800BEBA52 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -135,9 +135,9 @@
 				EAA118A4198A1BF000F443F1 /* HomeVC.swift */,
 				EAA118A6198A23CB00F443F1 /* LoginVC.swift */,
 				EAA118A8198AAC7100F443F1 /* SignupVC.swift */,
-				2DB4D85B1C1E61D900BEBA52 /* ListViewController.swift */,
+				2DB4D85B1C1E61D900BEBA52 /* FriendListVC.swift */,
 				2DDB0B621C20B8740017F5A9 /* BlogListVC.swift */,
-				2DB4D85C1C1E61D900BEBA52 /* DetailViewController.swift */,
+				2DB4D85C1C1E61D900BEBA52 /* BlogDetailVC.swift */,
 				2DB4D85D1C1E61D900BEBA52 /* MoreViewController.swift */,
 				2DB4D8651C1E620100BEBA52 /* Model */,
 			);
@@ -279,10 +279,10 @@
 				2DB4D8631C1E61F800BEBA52 /* TableCell.swift in Sources */,
 				EA62FD561989F6AC00469896 /* AppDelegate.swift in Sources */,
 				EAA118A5198A1BF000F443F1 /* HomeVC.swift in Sources */,
-				2DB4D85F1C1E61D900BEBA52 /* DetailViewController.swift in Sources */,
+				2DB4D85F1C1E61D900BEBA52 /* BlogDetailVC.swift in Sources */,
 				2DDB0B631C20B8740017F5A9 /* BlogListVC.swift in Sources */,
 				2DB4D8641C1E61F800BEBA52 /* Friend.swift in Sources */,
-				2DB4D85E1C1E61D900BEBA52 /* ListViewController.swift in Sources */,
+				2DB4D85E1C1E61D900BEBA52 /* FriendListVC.swift in Sources */,
 				2DDB0B651C20B8BA0017F5A9 /* Blog.swift in Sources */,
 				EAA118A7198A23CB00F443F1 /* LoginVC.swift in Sources */,
 			);

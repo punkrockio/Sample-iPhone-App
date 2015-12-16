@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FriendListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView?
     
     var friends = [Friend]()
@@ -23,15 +23,35 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func initializeTheFriends() {
-        self.friends = [
-            Friend(name: "Becz Wallace", thumbnails: "becz.jpg", prepTime: "4 years"),
-            Friend(name: "Joe Sanders", thumbnails: "joe.jpg", prepTime: "10 years"),
-            Friend(name: "John Meikle", thumbnails: "john.jpg", prepTime: "10 years"),
-            Friend(name: "Susie Mitchell", thumbnails: "sus.jpg", prepTime: "15 years"),
-            Friend(name: "Hannah 'Bolo' Bryant", thumbnails: "bolo.jpg", prepTime: "2 years"),
-            Friend(name: "Georgie Desalis", thumbnails: "george.jpg", prepTime: "2 years"),
-        ]
-        self.tableView?.reloadData()
+        
+        
+        
+        let url = NSURL(string: "http://159.203.113.84/api/user/1/friend")!;
+        
+        let session = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
+            (data, response, error) -> Void in
+        
+            if let rawData = data {
+                let jsonResult: NSArray = NSJSONSerialization.JSONObjectWithData(rawData, options: NSJSONReadingOptions.MutableContainers, error: NSErrorPointer()) as! NSArray;
+                
+                for (var i = 0; i < jsonResult.count; i++) {
+                    var resultData: NSDictionary! = (jsonResult[i] as! NSDictionary);
+                    self.friends.append(Friend(id: resultData["id"] as! String, name: resultData["name"] as! String, thumbnails: resultData["thumb_url"] as! String, prepTime: "X years"));
+                    println(resultData["name"]);
+                    println(jsonResult.count);
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.tableView?.reloadData();
+                    
+                });
+            }
+           
+            
+        });
+        
+        session.resume();
+        
     }
     
     // MARK: - UITableView DataSource Methods
@@ -44,7 +64,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = TableCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
         }
         
-        cell.configurateTheCell(friends[indexPath.row])
+        cell.configurateTheFriendCell(friends[indexPath.row])
         
         return cell!
     }
@@ -73,13 +93,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "friendDetail" {
+        if segue.identifier == "blogList" {
             let indexPath = self.tableView!.indexPathForSelectedRow
-            let destinationViewController: DetailViewController = segue.destinationViewController as! DetailViewController
+            //let destinationViewController: DetailViewController = segue.destinationViewController as! DetailViewController
+            let destinationViewController: BlogListVC = segue.destinationViewController as! BlogListVC;
             
-            destinationViewController.prepString = friends[indexPath()!.row].prepTime
-            destinationViewController.nameString = friends[indexPath()!.row].name
-            destinationViewController.imageName = friends[indexPath()!.row].thumbnails
+            destinationViewController.friend = friends[indexPath()!.row];
+            
+            println("Testing!");
+//            destinationViewController.prepString = friends[indexPath()!.row].prepTime
+//            destinationViewController.nameString = friends[indexPath()!.row].name
+//            destinationViewController.imageName = friends[indexPath()!.row].thumbnails
         }
     }
 }
